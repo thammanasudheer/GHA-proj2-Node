@@ -34,7 +34,7 @@ jobs:
       - name: install dependencies
         run: npm ci
       - name: Build Project
-        run: npm build
+        run: npm run build
       - name: upload artifact
         uses: actions/upload-artifact@v7
         with:
