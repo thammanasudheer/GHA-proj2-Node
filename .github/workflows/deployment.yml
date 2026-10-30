@@ -21,7 +21,7 @@ jobs:
       - name: Run tests
         run: npm test
 
-  deploy:
+  Build:
     needs: test
     runs-on:  ubuntu-latest
     steps:
@@ -35,3 +35,15 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+  Deploy:
+    needs: test
+    runs-on:  ubuntu-latest
+    steps:
+      - name: Get build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: dist-file
+      - name: list files
+        run: ls -la
+      - name: Deploy
+        uses: echo "Deploying......................."
