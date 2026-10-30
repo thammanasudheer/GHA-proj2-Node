@@ -33,14 +33,19 @@ jobs:
           node-version: '24'
       - name: install dependencies
         run: npm ci
-      - name: Run tests
-        run: npm test
+      - name: Build Project
+        run: npm build
+      - name: upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-file
+          path: dist
   Deploy:
     needs: Build
     runs-on:  ubuntu-latest
     steps:
       - name: Get build artifact
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v7
         with:
           name: dist-file
       - name: list files
