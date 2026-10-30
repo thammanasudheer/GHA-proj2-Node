@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/Checkout@v7
+        uses: actions/checkout@v7
       - name: Install Node.js
         uses: actions/setup-node@v7
         with:
@@ -26,7 +26,7 @@ jobs:
     runs-on:  ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/Checkout@v7
+        uses: actions/checkout@v7
       - name: Install Node.js
         uses: actions/setup-node@v7
         with:
@@ -46,4 +46,4 @@ jobs:
       - name: list files
         run: ls -la
       - name: Deploy
-        uses: echo "Deploying......................."
+        run: echo "Deploying......................."
